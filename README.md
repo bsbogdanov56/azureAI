@@ -1,4 +1,3 @@
-# azureAI
 # Azure — буфер-ассистент по горячей клавише
 
 Маленькая утилита для Windows: по `Ctrl+Shift+Q` берёт текст из буфера обмена, отправляет его в LLM и печатает ответ туда, где стоит курсор. История диалога сохраняется между запусками.
@@ -32,22 +31,15 @@ pip install -r requirements.txt
 
 ## Настройка
 
-Перед запуском задай ключ API:
+Открой `azure.py` и впиши свой ключ в строку:
 
-```bash
-set OPENAI_API_KEY=sk-...
-```
-
-И поправь в `azure.py`:
 ```python
-API_KEY = os.environ["OPENAI_API_KEY"]
+API_KEY = ""   # ← вставь сюда ключ от провайдера
 ```
 
-> ⚠️ Не коммить ключ в репозиторий.
+По умолчанию используется [routerai.ru](https://routerai.ru) с моделью `deepseek/deepseek-v3.2`. Если хочешь другого провайдера (OpenAI, OpenRouter и т.п.) — поменяй ещё `API_URL` и `MODEL`, эндпоинт должен быть OpenAI-совместимым (`/v1/chat/completions`).
 
-Опционально меняется:
-- `API_URL` — другой OpenAI-совместимый провайдер
-- `MODEL` — модель
+Дополнительно правится:
 - `MAX_TURNS` — глубина истории (по умолчанию 12 пар user/assistant)
 - хоткей в строке `keyboard.add_hotkey("ctrl+shift+q", ...)`
 
