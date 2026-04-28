@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# PyInstaller artefacts
+build/
+dist/
+*.spec
+
+# Local data
+chat_history.json
+.env
+
+# Reverse-engineering artefacts (если случайно попадут в репо)
+*.exe
+*.exe_extracted/
+*_disasm.txt
+
+# Editors
+.vscode/
+.idea/
